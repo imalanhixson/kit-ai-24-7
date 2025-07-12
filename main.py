@@ -2,6 +2,7 @@ from openai import OpenAI
 import discord
 import os
 from dotenv import load_dotenv
+import webserver
 
 channelID = 1369004568612049027
 
@@ -40,5 +41,6 @@ async def on_message(message):
         
         # Reply to the user's message
         await message.reply(response.choices[0].message.content)
-
+        
+webserver.keep_alive()
 client.run(TOKEN)
